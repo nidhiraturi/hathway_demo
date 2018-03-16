@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Basic Table</h2>
+  <label for="inputtext">Search:</label>
+<th><input type="text" id="inputtext" class="form-control" [(ngModel)]="key"></th>
+  <table class="table">
+    <thead>
+    <tr>
+      <th (click)="setFieldName('effective_t')">Date<span class="glyphicon glyphicon-sort" aria-hidden="true" style="margin-left : 5px"></span></th>
+      <th (click)="setFieldName('uploaded')">Uploaded<span class="glyphicon glyphicon-sort" aria-hidden="true" style="margin-left : 5px"></span></th>
+      <th (click)="setFieldName('downloaded')">Downloaded<span class="glyphicon glyphicon-sort" aria-hidden="true" style="margin-left : 5px"></span></th>
+      <th (click)="setFieldName('total_data')">Total<span class="glyphicon glyphicon-sort" aria-hidden="true" style="margin-left : 5px"></span></th>
+      <th (click)="setFieldName('duration')">Duration<span class="glyphicon glyphicon-sort" aria-hidden="true" style="margin-left : 5px"></span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of dataUsage | sort : selectedField |searchfilter:key">
+      <td>{{item.effective_t}}</td>
+      <td>{{item.uploaded}}</td>
+      <td>{{item.downloaded}}</td>
+      <td>{{item.total_data}}</td>
+      <td>{{item.duration}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

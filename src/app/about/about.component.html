@@ -1,0 +1,25 @@
+<h1>Payment Page</h1>
+ <form>
+First Name:<input type="text" name="firstname" value="ankit"  #firstname /><br>
+Success URL:<input type="text" name="surl" value="http://192.168.15.75:8080/api/isp/v1/customer/paymentSuccessResponse" #b /><br>
+Phone no.<input type="text" name="phone" value="9785624362"  #c/><br>
+Key:<input type="text" name="key" value="gtKFFx" #d /><br>
+<!-- <input type="text" name="hash"  #e value =
+"5dd802f83b30ac35969813de84ba5f7838c57c1f99777d9c40aa03881f5a7f65469dd17b034193c35aad8ba365b748f51ddb58e55ab6b6da23f9ebdbd92784c6" /> -->
+Failure URL<input type="text" name="furl"  value="http://192.168.15.75:8080/api/isp/v1/customer/paymentSuccessResponse" #f/><br>
+Transaction Id<input type="text" name="txnid"  #g/><br>
+ProductInfo:<input type="text" name="productinfo"  #h /><br>
+Amount<input type="text" name="amount" value="1200"  #i/><br>
+Email<input type="text" name="email" value="abisht24@gmail.com" #j/><br>
+<input type= "button" value="submit" (click)="payment(firstname.value,b.value,c.value,d.value,f.value,g.value,h.value,i.value,j.value)">
+<!-- <button type="submit">button</button> -->
+</form>
+<!-- <div [innerHtml]="test" ></div>  -->
+<!-- gtKFFx|skdjbfbfsdkjbfksjdbfkjdsbf|1000|cable|Smart|smart@gmail.com|||||||||||eCwWELxi -->
+
+
+  <button (click) = "onclick()" >Make a Payment</button>
+
+
+       
+

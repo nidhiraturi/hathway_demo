@@ -1,0 +1,58 @@
+<div id="login-box">
+  <div class="left">
+    <h1>ISP SELFCARE LOGIN</h1>
+    <form>
+      <input type="checkbox" (change)="setFlag()" />
+      <button type="button" class="btn btn-warning" [disabled]="checkFlag">demo</button>
+      <br>
+      <br>
+      <div>
+        <input type="radio" [(ngModel)]="type" name="type" value="registered_mobile_no" required> Mobile Number
+        <input type="radio" [(ngModel)]="type" name="type" value="accountNumber" required> Account Number
+        <input type="radio" [(ngModel)]="type" name="type" value="emailAddress" required> Email address
+        <input type="radio" [(ngModel)]="type" name="type" value="userName" required> UserName
+      </div>
+      <div>
+        <br>
+        <!-- <small class="check" *ngIf="loginForm.controls['login'].hasError('required')" style="color:red">*</small> -->
+
+        <div class="input-group">
+          <input type="text" class="form-control" id="input_value" [(ngModel)]="input_value" name="input_value"  placeholder="{{type}}"  />
+        </div>
+
+
+        <div class="check">{{errorMessage}}</div>
+      </div>
+      <button type="button" class="btn btn-primary  pull-left col-sm-3" (click)="sendOtp()">send otp</button>
+      <div class="input-group">
+        <input type="text" [(ngModel)]="otp" name="otp" placeholder="Enter the otp" />
+      </div>
+      <!-- <re-captcha (resolved)="resolved($event)" siteKey="6LeEuEMUAAAAAIB-u84_8l-1ztQCVhWQDYOWp1uX"></re-captcha> -->
+      <button type="button" class="btn btn-warning" (click)="verifyOtp()">Login</button>
+      <br>
+      <br>
+
+
+      <!-- <button type="submit" id="loginButton" class="btn btn-warning" [disabled]="flag" align="center" (click)="verifyOtp()">
+
+        Login
+        <span class="glyphicon glyphicon-send"></span>
+      </button> -->
+      <!-- <button type="submit"  class="btn btn-warning" align="center" (click)="payment()">Pay Now</button> -->
+    </form>
+  </div>
+
+</div>
+
+<!-- ==================================== -->
+
+ <!-- <button type="button" class="btn btn-primary  pull-left col-sm-3" [selected]="flag1" (click)="setFlagg(male)">Male</button>
+<button type="button" class="btn btn-primary  pull-left col-sm-3" [selected]="flag2" (click)="setFlagg(female)">Female</button>
+<button type="button" class="btn btn-primary  pull-left col-sm-3" [selected]="flag3"(click)="setFlagg(other)">Other</button>
+
+<select>
+  <option value="male">Male</option>
+  <option value="female">female</option>
+  <option value="other">other</option>
+  
+</select> -->

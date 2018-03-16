@@ -1,0 +1,121 @@
+<input type="file" name="pic" accept="image/*" #profilePicUrl (change)="handleFileSelect($event)">
+
+
+<br>
+<div class="span3">
+    <div class="col-sm-2 col-md-2">
+        <img src="{{imageUrl}}" alt="profile" class="img-rounded img-responsive"
+        />
+    </div>
+    <br>
+    <h2>My Profile</h2>
+    <form>
+        <label>Account No.</label>:
+        <input type="text" name="accountNo"  placeholder="{{this.customerDetail.account_no}}"  class="span3" readonly>
+        <br>
+        <label>Name</label>
+        <input type="text" name="name" placeholder="{{this.customerDetail.first_name + this.customerDetail.last_name }}" class="span3"
+            readonly>
+        <br>
+        <label>Mobile no.</label>
+        <input type="email" name="mobileNo"  placeholder="{{this.customerDetail.registered_mobile_no}}" class="span3" readonly>
+        <span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-pencil"></span>
+        <br>
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="{{this.customerDetail.email}}" [(ngModel)]="email" class="span3" readonly>
+        <span class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#emailModal"></span>
+        <br>
+        <label>Service Address</label>
+        <input type="text" name="serviceAddress" placeholder="{{this.customerAddress[0].address}}" class="span3" readonly>
+        <br>
+        <label>Communication Address</label>
+        <input type="text" name="communicationAddress" placeholder="{{this.customerAddress[1].address}}" class="span3" readonly>
+    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Enter your new Mobile Number</label>
+                    <br>
+                    <input type="text" name="newMobileNo" #newMobileNo>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="generateOtp(newMobileNo.value,this.customerDetail.registered_mobile_no)"
+                        data-toggle="modal" data-target="#otpModal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--OTP  Modal -->
+    <div class="modal fade" id="otpModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Enter 4-DIGIT Code</label>
+                    <br>
+                    <input type="text" name="phoneotp" #phoneotp>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="editPhoneno(phoneotp.value,newMobileNo.value)" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Modal 2-->
+        <div class="modal fade" id="emailModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <label>Enter your new Email Address</label>
+                            <br>
+                            <input type="text" name="newEmailAddress" #newEmailAddress>
+        
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="generateEmailOtp(newEmailAddress.value)"
+                                data-toggle="modal" data-target="#emailOtpModal">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--email  Modal -->
+            <div class="modal fade" id="emailOtpModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <label>Enter 4-DIGIT Code</label>
+                            <br>
+                            <input type="text" name="otp" #otp>
+        
+                        </div>
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-default" (click)="editEmail(otp.value,newEmailAddress.value)" data-dismiss="modal">Save</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+
