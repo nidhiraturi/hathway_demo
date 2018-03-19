@@ -26,6 +26,7 @@ import {AuthInterceptor} from '../app/authInterceptor';
 import {cacheInterceptor} from '../app/cacheInterceptor'
 import{HttpClient,HttpClientModule}  from '@angular/common/http';
 import { CarouselModule } from 'angular4-carousel';
+import { LoginmodifiedComponent } from './loginmodified/loginmodified.component';
 
 // import {BillsComponent} from './bills/bills.component'
 // import {NgIdleModule} from '@ng-idle/core'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
@@ -42,7 +43,8 @@ import { CarouselModule } from 'angular4-carousel';
     SortPipe,
     SearchfilterPipe,
     BaseSixtyFourInputComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    LoginmodifiedComponent
 
   ],
   imports: [
@@ -71,6 +73,10 @@ import { CarouselModule } from 'angular4-carousel';
       {
         path:'my-profile',
         component:MyProfileComponent
+      },
+      {
+        path:'loginmodified',
+        component:LoginmodifiedComponent
       }
 
     ]),
