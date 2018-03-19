@@ -38,7 +38,7 @@ export class LoginmodifiedComponent implements OnInit {
         } else if (type === 'email') {
 
           this.loginForm.get('input_value').setValidators([Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]);
-          this.errorMessage = "check the Email.again";
+          this.errorMessage = "check the Email again";
         }
         else if (type === 'userName') {
 

@@ -2,69 +2,64 @@
   <div class="container">
     <div class="row main">
       <div class="main-login main-center">
-    
-        <form  method="post" (ngSubmit)="loginUser()" [formGroup]="loginForm" >
-          
-          <!-- <div class="form-group">
-            
-          <label for="typeUser" class="cols-sm-2 control-label">type:</label>
-          <div class="cols-sm-10">
-            <select formControlName="typeUser" placeholder="select type of user" class="form-control selectpicker">
-              <option disabled selected value="" >Select User</option>
-              <option value="1">Super Admin</option>
-              <option value="2">Admin</option>
-              <option value="3">User</option>
-              
-            </select>
-          </div>
-        </div> -->
+
+        <form method="post" [formGroup]="loginForm">
+
+        
 
 
           <div class="form-group">
-              <small  class="check" *ngIf="loginForm.controls['type'].hasError('required')"  style = "color:red">*</small>
+            <small class="check" *ngIf="loginForm.controls['type'].hasError('required')" style="color:red">*</small>
             <label for="name" class="cols-sm-2 control-label">Choose from the Following Options:</label>
             <div class="form-group radio">
-            
-              <label><input type="radio" formControlName="type" value="registered_mobile_no">registered_mobile_no </label>
-              <label><input type="radio" formControlName="type" value="email">EMAIL</label>
-              <label><input type="radio" formControlName="type" value="username">USERNAME</label>
-              <label><input type="radio" formControlName="type" value="accountNo">Account Number</label>
+
+              <label>
+                <input type="radio" formControlName="type" value="registered_mobile_no" checked=”checked”>registered_mobile_no </label>
+              <label>
+                <input type="radio" formControlName="type" value="email">EMAIL</label>
+              <label>
+                <input type="radio" formControlName="type" value="username">USERNAME</label>
+              <label>
+                <input type="radio" formControlName="type" value="accountNo">Account Number</label>
             </div>
-         
 
 
-        
-        
-        
-              </div>
-            
-          
+
+
+
+
+          </div>
+
+
 
           <div class="form-group">
-              <small  class="check" *ngIf="loginForm.controls['input_value'].hasError('required')"  style = "color:red">*</small>
+            <small class="check" *ngIf="loginForm.controls['input_value'].hasError('required')" style="color:red">*</small>
             <label for="input_value" class="cols-sm-2 control-label">Your input_value</label>
             <div class="cols-sm-10">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" id="input_value" [(ngModel)]="input_value" formControlName="input_value"  placeholder="{{loginForm.value.type}}"  />
+                <span class="input-group-addon">
+                  <i class="fa fa-envelope fa" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" id="input_value" [(ngModel)]="input_value" formControlName="input_value" placeholder="{{loginForm.value.type}}"
+                />
               </div>
-    
-              
-   <div class="check" *ngIf="loginForm.controls['input_value'].hasError('pattern')">{{errorMessage}}</div> 
 
+
+              <div class="check" *ngIf="loginForm.controls['input_value'].hasError('pattern')&& loginForm.controls['input_value'].dirty && loginForm.controls['input_value'].touched " style="color:red">{{errorMessage}}</div>
+              <div class="check" *ngIf="loginForm.controls['input_value'].hasError('required')" style="color:red">Field must not be empty</div>
 
             </div>
           </div>
 
 
-         
+
           <div class="form-group ">
-            <button type="submit" btn btn-success (click)="abc()" >Register</button>
+            <button type="submit" btn btn-success (click)="abc()">Register</button>
           </div>
-          
+
         </form>
       </div>
     </div>
   </div>
-  
+
 </body>
